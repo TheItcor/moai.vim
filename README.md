@@ -1,9 +1,13 @@
 
-<p align="center">
+<h1 align="center">    
        <img width="936" height="257" alt="изображение" src="https://github.com/user-attachments/assets/ad953a56-f9ae-4c35-b1ba-3a2a4ef372a0" />
-</p>
+ 
+              
+![Version](https://img.shields.io/badge/version-1.1-blue)
+![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
+              
+</h1>
 
----
 
 <h3 align="center">  
        <br>
@@ -14,16 +18,7 @@
 
 *C++*? *Java*? Maybe *Python*? This config is good for programming in most languages. Syntax **highlighting**, **snippets**, **LSR**, and **Vim-motions** will take your fast coding to the next level.
 
-<h1 align="center">    
-              
-![Version](https://img.shields.io/badge/version-1.0-blue)
-       ![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)
-       ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-       ![C++](https://img.shields.io/badge/C++-00599C?logo=c%2B%2B&logoColor=white)
-       ![Java](https://img.shields.io/badge/Java-ED8B00?logo=java&logoColor=white)
-       ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
-              
-</h1>
+
 
 
 # Requirements
