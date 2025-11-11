@@ -83,6 +83,7 @@ Plug 'nvim-lualine/lualine.nvim' -- Status Bar
 -- Plug 'mhinz/vim-startify' -- Start Menu
 Plug 'nvimdev/dashboard-nvim' -- Start Menu
 
+
 -- file manage
 Plug 'nvim-tree/nvim-tree.lua' -- File Manager
 Plug 'nvim-tree/nvim-web-devicons' -- Icons for File Manager
@@ -100,6 +101,7 @@ Plug 'sheerun/vim-polyglot' -- Syntax highlight
 Plug 'Wansmer/langmapper.nvim' -- Friendly non-English input
 Plug 'lukas-reineke/indent-blankline.nvim' -- For C-style code {}
 
+
 -- LSR
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
@@ -108,6 +110,15 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'mfussenegger/nvim-jdtls'
+
+
+-- Snippets
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'saadparwaiz1/cmp_luasnip'
+
+
+-- -- Add here your plugins! -- --
 
 
 vim.call('plug#end')
@@ -263,12 +274,56 @@ cmp.setup({
 -- }
 
 
+-- Snippets {
+local luasnip = require("luasnip")
+require("luasnip.loaders.from_vscode").lazy_load()
+
+local cmp = require("cmp")
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+
+  mapping = {
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end,
+  },
+
+  sources = {
+    { name = 'nvim_lsp', max_item_count = 6 },
+    { name = 'buffer', keyword_length = 3, max_item_count = 2 },
+    { name = 'luasnip' }, --
+  },
+})
+-- }
+
+
 -- Friendly non-English input {
 require('langmapper').setup {
   layout = {'ru', 'be', 'de', 'fr', 'es', 'it', 'pl', 'cz', 'tr', 'jp', 'cn', 'kr', 'pt', 'br', 'fi', 'sv', 'no', 'da', 'hu', 'ro', 'bg', 'gr', 'nl', 'in'},
   keep_keymaps = true,
 }
 -- }
+
 
 -- KEYMAPS {
 vim.g.mapleader = " "
