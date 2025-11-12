@@ -19,12 +19,12 @@
 --
 --
 -- Last update: 12.11.2025
--- Version 
---      |
---      |
---      |
---     \ /
---      v
+--                     Version 
+--                        |
+--                        |
+--                        |
+--                       \ /
+--                        v
 local config_version = '[v1.1] "Little Turtle"' 
   
 -- Basic settings {
@@ -54,7 +54,6 @@ vim.opt.ignorecase = true
 -- }
 
 -- Syntax light {
-vim.opt.syntax = "ON"
 vim.opt.termguicolors = true
 -- }
 
@@ -195,7 +194,6 @@ require("toggleterm").setup({
 require('ibl').setup({
 indent = { 
     char = "│", 
-    highlight = highlight
   },
   exclude = {
     filetypes = { "dashboard", "NvimTree",},
