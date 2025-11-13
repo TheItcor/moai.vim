@@ -424,7 +424,7 @@ require('dashboard').setup({
 })
 vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#24d4b6", bg = "NONE", bold = true })
 vim.api.nvim_set_hl(0, "DashboardDesc", { fg = "#40E0D0", bg = "NONE", bold = true })
-vim.api.nvim_set_hl(0, "DashboardIcon", { fg = "#FFFFFF", bg = "NONE", bold = true })        
+vim.api.nvim_set_hl(0, "DashboardIcon", { fg = "#FFFFFF", bg = "NONE", bold = true }) 
 vim.api.nvim_set_hl(0, "DashboardKey", { fg = "#FFFFFF", bg = "NONE", bold = true })
 -- }
 
