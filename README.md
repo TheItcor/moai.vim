@@ -3,7 +3,7 @@
        <img width="936" height="257" alt="изображение" src="https://github.com/user-attachments/assets/ad953a56-f9ae-4c35-b1ba-3a2a4ef372a0" />
  
               
-![Version](https://img.shields.io/badge/version-1.1-blue)
+![Version](https://img.shields.io/badge/version-1.2-green)
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
               
 </h1>
