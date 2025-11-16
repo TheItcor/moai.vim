@@ -64,6 +64,21 @@ vim.opt.swapfile = false
 
 
 
+-- Auto install VimPlug {
+local data_dir = vim.fn.stdpath('data') .. '/site'
+local plug_path = data_dir .. '/autoload/plug.vim'
+
+if vim.fn.empty(vim.fn.glob(plug_path)) > 0 then
+  vim.fn.system({
+    'curl', '-fLo', plug_path, '--create-dirs',
+    'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  })
+  -- After install the Vimplug restarting the config
+  vim.cmd('autocmd VimEnter * PlugInstall --sync | source $MYVIMRC')
+end
+-- }
+
+
 -- Further for convenience
 local Plug = vim.fn['plug#']
 
