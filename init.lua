@@ -73,7 +73,6 @@ vim.call('plug#begin')
 -- Goods
 Plug 'Mofiqul/vscode.nvim' -- Colorscheme
 Plug 'nvim-lualine/lualine.nvim' -- Status Bar
--- Plug 'mhinz/vim-startify' -- Old Start Menu
 Plug 'nvimdev/dashboard-nvim' -- New Start Menu
 
 
@@ -89,9 +88,9 @@ Plug 'nvim-telescope/telescope.nvim' -- Telescope
 
 -- Coding
 Plug 'aliqyan-21/runTA.nvim' -- Run code
-Plug 'jiangmiao/auto-pairs' -- Auto closed brakets
+--Plug 'jiangmiao/auto-pairs' -- Auto closed brakets (old)
+Plug 'windwp/nvim-autopairs' -- New plugin for auto closed brakets 
 Plug 'akinsho/toggleterm.nvim' -- Terminal
--- Plug 'sheerun/vim-polyglot' -- Syntax highlight
 Plug 'Wansmer/langmapper.nvim' -- Friendly non-English input
 Plug 'lukas-reineke/indent-blankline.nvim' -- For C-style code {}
 
@@ -158,11 +157,12 @@ require('gitsigns').setup()
 -- }
 
 
--- Settings Telescope
+-- Settings Telescope {
 require('telescope').setup{
   defaults = {
   },
 }
+-- }
 
 
 -- Compile && Run code {
@@ -173,6 +173,13 @@ require('runTA.commands').setup({
       transparent = "false"
   }
 })
+-- }
+
+
+-- Auto Pairs {
+require('nvim-autopairs').setup{}
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
 -- }
 
 
