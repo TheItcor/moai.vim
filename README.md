@@ -3,7 +3,7 @@
        <img width="936" height="257" alt="изображение" src="https://github.com/user-attachments/assets/ad953a56-f9ae-4c35-b1ba-3a2a4ef372a0" />
  
               
-![Version](https://img.shields.io/badge/version-1.2-green)
+![Version](https://img.shields.io/badge/version-1.3-green)
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
               
 </h1>
@@ -16,7 +16,7 @@
        <img width="1215" height="1191" alt="изображение" src="https://github.com/user-attachments/assets/742825fc-81c0-4e83-8ab8-969e78f1fc71" />
 </h3>
 
-*C++*? *Java*? Maybe *Python*? This config is good for programming in most languages. Syntax **highlighting**, **snippets**, **LSR**, and **Vim-motions** will take your fast coding to the next level.
+*C++*? *Rust*? Maybe *Python*? This config is good for programming in most languages. Syntax **highlighting**, **snippets**, **LSR**, and **Vim-motions** will take your fast coding to the next level.
 
 
 
@@ -60,28 +60,18 @@ git clone https://github.com/TheItcor/MoaiVim.git ~/.config/nvim
 ```
 <br>
 
-### 3. Download the VimPlug
-```
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-```
-<br>
 
-### 4. Open Neovim & install plugins
+### 3. Open Neovim & install plugins
 
 ```
 nvim
 ```
-In Neovim enter:
-```
-:PlugInstall
-```
+... And just wait for vimplug, plugins, and lsp to download.
 
-Once everything is ready, **restart**
 
----
 
 <br>
+
 
 # What's inside?
 - Git system right in Vim
