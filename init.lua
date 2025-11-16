@@ -25,7 +25,7 @@
 --                        |
 --                       \ /
 --                        v
-local config_version = '[v1.3-dev] "Little Turtle"'
+local config_version = '[v1.3] "Little Turtle"'
   
 -- Basic settings {
 vim.opt.number = true
