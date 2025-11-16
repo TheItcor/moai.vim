@@ -53,20 +53,37 @@ sudo emerge -a app-editors/neovim
 ```
 <br>
 
-### 2. Clone the repository
+### 2. Install the config
 
+
+Last stable verison:
+
+**curl:**
+```
+TAG=$(curl -s https://api.github.com/repos/TheItcor/MoaiVim/releases/latest | grep "tag_name" | cut -d : -f 2 | cut -d \" -f2) && curl -L https://github.com/TheItcor/MoaiVim/archive/refs/tags/$TAG.zip -o /tmp/moai.zip && unzip /tmp/moai.zip -d /tmp/moai && mkdir -p ~/.config/nvim && mv /tmp/moai/*/* ~/.config/nvim/ && rm -rf /tmp/moai /tmp/moai.zip
+```
+
+**wget:**
+```
+TAG=$(wget -q -O - https://api.github.com/repos/TheItcor/MoaiVim/releases/latest | grep "tag_name" | cut -d : -f 2 | cut -d \" -f2) && wget https://github.com/TheItcor/MoaiVim/archive/refs/tags/$TAG.zip -O /tmp/moai.zip && unzip /tmp/moai.zip -d /tmp/moai && mkdir -p ~/.config/nvim && mv /tmp/moai/*/* ~/.config/nvim/ && rm -rf /tmp/moai /tmp/moai.zip
+```
+
+<br>
+
+Unstable / bleeding-edge version verison:
 ```
 git clone https://github.com/TheItcor/MoaiVim.git ~/.config/nvim
 ```
+
 <br>
 
 
-### 3. Open Neovim & install plugins
+### 3. Open Neovim & Enjoy
 
 ```
 nvim
 ```
-... And just wait for vimplug, plugins, and lsp to download.
+... And just wait for Vim-Plug, plugins, and lsp to download.
 
 
 
