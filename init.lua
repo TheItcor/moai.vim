@@ -46,7 +46,6 @@ vim.opt.mouse = "a"
 vim.opt.history = 200
 vim.opt.ruler = true
 vim.opt.showcmd = true
-vim.opt.shortmess:append("I")
 vim.opt.showmatch = true
 
 -- Searching settings 
@@ -66,7 +65,6 @@ vim.opt.swapfile = false
 
 
 -- Further for convenience
-local vim = vim
 local Plug = vim.fn['plug#']
 
 -- Plugins {
