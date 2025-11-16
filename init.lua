@@ -204,13 +204,13 @@ require("toggleterm").setup({
 
 -- For c-style code {
 require('ibl').setup({
-indent = { 
-    char = "│", 
+indent = {
+    char = "│",
   },
   exclude = {
     filetypes = { "dashboard", "NvimTree",},
-    buftypes = { "terminal" }, 
-  }    
+    buftypes = { "terminal" },
+  }
 })
 -- }
 
@@ -219,19 +219,22 @@ indent = {
 -- Setup Mason and mason-lspconfig for installing LSP servers
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = {"lua_ls", "rust_analyzer", "pyright", "ts_ls", "clangd"}
+  ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "ts_ls", "clangd" },
 })
 
--- LSP capabilities from cmp_nvim_lsp
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local servers = {'lua_ls', 'rust_analyzer', 'pyright', 'ts_ls', 'clangd'} 
+local servers = { "lua_ls", "rust_analyzer", "pyright", "ts_ls", "clangd" }
+
 for _, server in ipairs(servers) do
   vim.lsp.config(server, {
-    capabilities = capabilities,  -- Attach capabilities for CMP integration
+    capabilities = capabilities,
+    -- settings = { ... },
+    -- on_attach = on_attach,
   })
-  vim.lsp.enable(server)  -- Enable the config to activate for filetypes
+  vim.lsp.enable(server)
 end
+
 
 -- Special setup for java
 -- This uses autocmd to attach jdtls only for Java buffers, avoiding lspconfig issues...
@@ -246,8 +249,10 @@ vim.api.nvim_create_autocmd("FileType", {
     })
   end,
 })
+-- }
 
--- Snippets
+
+-- Snippets {
 local luasnip = require("luasnip")
 require("luasnip.loaders.from_vscode").lazy_load()
 
