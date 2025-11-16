@@ -31,13 +31,13 @@
 ### 1. Install the Neovim
 
 
-Ubuntu/Debian
+Ubuntu / Debian /Linux Mint / Pop!_OS / Zorin OS
 ```
 sudo add-apt-repository ppa:neovim-ppa/stable -y
 sudo apt update && sudo apt install neovim
 ```
 
-Arch
+Arch / Manjaro / EndeavourOS / CachyOS
 ```
 sudo pacman -S neovim
 ```
@@ -51,6 +51,12 @@ Gentoo
 ```
 sudo emerge -a app-editors/neovim
 ```
+
+Fedora
+```
+sudo dnf install neovim
+```
+
 <br>
 
 ### 2. Install the config
