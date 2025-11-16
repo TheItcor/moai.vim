@@ -219,7 +219,7 @@ indent = {
 -- Setup Mason and mason-lspconfig for installing LSP servers
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "ts_ls", "clangd" },
+--  ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "ts_ls", "clangd" },
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -232,7 +232,7 @@ for _, server in ipairs(servers) do
     -- settings = { ... },
     -- on_attach = on_attach,
   })
-  vim.lsp.enable(server)
+--  vim.lsp.enable(server)
 end
 
 
@@ -241,10 +241,16 @@ end
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
   callback = function()
-    local jdtls = require('jdtls')
-    jdtls.start_or_attach({
-      cmd = { 'jdtls' },
-      root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+    if vim.fn.executable("jdtls") == 0 or vim.fn.executable("java") == 0 then
+      return  -- if the user doesn't have Java, then just skip it
+    end
+
+    local ok, jdtls = pcall(require, "jdtls")
+    if not ok then return end
+
+    pcall(jdtls.start_or_attach, {
+      cmd = { "jdtls" },
+      root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]) or vim.fn.getcwd(),
       capabilities = capabilities,
     })
   end,
