@@ -18,14 +18,14 @@
 -- 
 --
 --
--- Last update: 13.11.2025
+-- Last update: 16.11.2025
 --                     Version 
 --                        |
 --                        |
 --                        |
 --                       \ /
 --                        v
-local config_version = '[v1.2] "Little Turtle"'
+local config_version = '[v1.3-dev] "Little Turtle"'
   
 -- Basic settings {
 vim.opt.number = true
@@ -133,8 +133,8 @@ require('lualine').setup{}
 -- Treesitter {
 require('nvim-treesitter.configs').setup {
   ensure_installed = { 'lua', 'rust', 'python', 'typescript', 'c', 'cpp','java', 'javascript' },
-  -- highlight = { enable = true },
-  -- indent = { enable = true },
+  highlight = { enable = true }, -- better syntax highlight
+  indent = { enable = true },
 }
 -- }
 
@@ -157,12 +157,12 @@ require("nvim-tree"). setup({
 require('gitsigns').setup()
 -- }
 
+
 -- Settings Telescope
 require('telescope').setup{
   defaults = {
   },
 }
-
 
 
 -- Compile && Run code {
@@ -193,6 +193,7 @@ require("toggleterm").setup({
   end,
 })
 -- }
+
 
 -- For c-style code {
 require('ibl').setup({
@@ -316,7 +317,6 @@ cmp.setup({
 -- }
 
 
-
 -- Friendly non-English input {
 require('langmapper').setup {
   layout = {'ru', 'be', 'de', 'fr', 'es', 'it', 'pl', 'cz', 'tr', 'jp', 'cn', 'kr', 'pt', 'br', 'fi', 'sv', 'no', 'da', 'hu', 'ro', 'bg', 'gr', 'nl', 'in'},
@@ -344,10 +344,6 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Find text (live g
 -- Start screen {
 require('dashboard').setup({
   theme = 'doom',
-  --colors = {
-  --  {fg = "#24d4b6"}, -- this thing works very stangely, so the color is set below
-  --  {fg = "#2bc4b0"}
-  --},
   config = {
     header = {
       "",
