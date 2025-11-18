@@ -1,3 +1,4 @@
+--
 --   ██████   ██████                     ███     █████   █████  ███
 --  ▒▒██████ ██████                     ▒▒▒     ▒▒███   ▒▒███  ▒▒▒
 --   ▒███▒█████▒███   ██████   ██████   ████     ▒███    ▒███  ████  █████████████
@@ -10,23 +11,43 @@
 --
 -- First set up: 06.11.2025
 -- Author: Itcor (TheItcor)
--- github.com/TheItcor/Moai.Vim
+-- Github page: github.com/TheItcor/Moai.Vim
 -- Original Neovim: github.com/neovim/neovim
 -- Neovim config for programming based on VimPlug.
 --
 --
 --
--- Last update: 16.11.2025
+-- Last update: 18.11.2025
 --                     Version
 --                        |
 --                        |
 --                        |
 --                       \ /
 --                        v
-local config_version = '[v1.3] "Little Turtle"'
+local config_version = '[v1.4-dev] "Little Turtle"'
 
 -- Basic settings {
-vim.o.number = true
+vim.o.number = true             -- Show numbers
+vim.o.wrap = false              -- Don't wrap long lines visually
+vim.o.clipboard = 'unnamedplus' -- Use system clipboard for all
+vim.o.mouse = 'a'               -- Use mouse
+vim.o.history = 200             -- Undo/Redo history 
+vim.o.ruler = true              -- Always show cursor position in the bottom-right corner
+vim.o.showcmd = true            -- Show partial command in the last lin
+vim.o.showmatch = true          -- Briefly jump to matching bracket
+
+-- Searching settings
+vim.o.ignorecase = true         -- Ignore case when searching with lowercase patterns...
+vim.o.smartcase = true          -- ...but respect case if the pattern contains uppercase letters
+
+-- Syntax light
+vim.o.termguicolors = true      -- Enable 24-bit RGB colors
+
+-- UTF-8
+vim.o.encoding = 'utf-8'        -- Default file encoding = UTF-8
+
+-- No swaps
+vim.o.swapfile = false
 
 -- Tabs
 vim.o.expandtab = true
@@ -35,29 +56,6 @@ vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.autoindent = true
 vim.o.smartindent = true
-
-vim.o.wrap = false
-
-vim.o.clipboard = 'unnamedplus'
-vim.o.mouse = 'a'
-
-vim.o.history = 200
-vim.o.ruler = true
-vim.o.showcmd = true
-vim.o.showmatch = true
-
--- Searching settings
-vim.o.ignorecase = true
-
--- Syntax light
-vim.o.termguicolors = true
-
--- UTF-8
-vim.o.encoding = 'utf-8'
-
--- No swaps
-vim.o.swapfile = false
-
 -- }
 
 -- Auto install VimPlug {
@@ -99,7 +97,6 @@ Plug('nvim-telescope/telescope.nvim') -- Telescope
 
 -- Coding
 Plug('aliqyan-21/runTA.nvim') -- Run code
---Plug 'jiangmiao/auto-pairs' -- Auto closed brakets (old)
 Plug('windwp/nvim-autopairs') -- New plugin for auto closed brakets
 Plug('akinsho/toggleterm.nvim') -- Terminal
 Plug('Wansmer/langmapper.nvim') -- Friendly non-English input
