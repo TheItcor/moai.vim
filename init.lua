@@ -13,11 +13,12 @@
 -- Author: Itcor (TheItcor)
 -- Github page: github.com/TheItcor/Moai.Vim
 -- Original Neovim: github.com/neovim/neovim
--- Neovim config for programming based on VimPlug.
+-- Description: Minimalistic Neovim config based on Vim-Plug.
+--
+-- Special thanks: Contributer(s)
 --
 --
---
--- Last update: 18.11.2025
+-- Last update: 19.11.2025
 --                     Version
 --                        |
 --                        |
@@ -27,24 +28,24 @@
 local config_version = '[v1.4-dev] "Little Turtle"'
 
 -- Basic settings {
-vim.o.number = true             -- Show numbers
-vim.o.wrap = false              -- Don't wrap long lines visually
+vim.o.number = true -- Show numbers
+vim.o.wrap = false -- Don't wrap long lines visually
 vim.o.clipboard = 'unnamedplus' -- Use system clipboard for all
-vim.o.mouse = 'a'               -- Use mouse
-vim.o.history = 200             -- Undo/Redo history 
-vim.o.ruler = true              -- Always show cursor position in the bottom-right corner
-vim.o.showcmd = true            -- Show partial command in the last lin
-vim.o.showmatch = true          -- Briefly jump to matching bracket
+vim.o.mouse = 'a' -- Use mouse
+vim.o.history = 200 -- Undo/Redo history
+vim.o.ruler = true -- Always show cursor position in the bottom-right corner
+vim.o.showcmd = true -- Show partial command in the last lin
+vim.o.showmatch = true -- Briefly jump to matching bracket
 
 -- Searching settings
-vim.o.ignorecase = true         -- Ignore case when searching with lowercase patterns...
-vim.o.smartcase = true          -- ...but respect case if the pattern contains uppercase letters
+vim.o.ignorecase = true -- Ignore case when searching with lowercase patterns...
+vim.o.smartcase = true -- ...but respect case if the pattern contains uppercase letters
 
 -- Syntax light
-vim.o.termguicolors = true      -- Enable 24-bit RGB colors
+vim.o.termguicolors = true -- Enable 24-bit RGB colors
 
 -- UTF-8
-vim.o.encoding = 'utf-8'        -- Default file encoding = UTF-8
+vim.o.encoding = 'utf-8' -- Default file encoding = UTF-8
 
 -- No swaps
 vim.o.swapfile = false
@@ -131,7 +132,31 @@ require('lualine').setup({})
 
 -- Treesitter {
 require('nvim-treesitter.configs').setup({
-  ensure_installed = { 'lua', 'rust', 'python', 'typescript', 'c', 'cpp', 'java', 'javascript' },
+  ensure_installed = {
+    'bash',
+    'lua',
+    'python',
+    'javascript',
+    'typescript',
+    'c',
+    'cpp',
+    'rust',
+    'java',
+    'json',
+    'yaml',
+    'nasm', -- Assembly x86 / 86_64 (Intel Syntax)
+
+    -- -- Add here your language! -- --
+
+    -- 'arm_asm', - ARM-assambly
+    -- 'asm', - Assembly x86 / x86_64 (AT&T syntax)
+    -- 'go',
+    -- 'html',
+    -- 'css',
+    -- 'kotlin',
+    -- 'csharp',
+    -- 'php',
+  },
   highlight = { enable = true }, -- better syntax highlight
   indent = { enable = true },
 })
@@ -215,7 +240,7 @@ require('mason-lspconfig').setup({
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local servers = { 'lua_ls', 'rust_analyzer', 'pyright', 'ts_ls', 'clangd' }
+local servers = { 'lua_ls', 'rust_analyzer', 'pyright', 'ts_ls', 'clangd', 'asm_lsp' }
 
 for _, server in ipairs(servers) do
   vim.lsp.config(server, {
@@ -446,6 +471,7 @@ require('dashboard').setup({
     footer = {},
   },
 })
+-- colors for main menu --
 vim.api.nvim_set_hl(0, 'DashboardHeader', { fg = '#24d4b6', bg = 'NONE', bold = true })
 vim.api.nvim_set_hl(0, 'DashboardDesc', { fg = '#40E0D0', bg = 'NONE', bold = true })
 vim.api.nvim_set_hl(0, 'DashboardIcon', { fg = '#FFFFFF', bg = 'NONE', bold = true })
