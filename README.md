@@ -3,7 +3,7 @@
        <img width="936" height="257" alt="изображение" src="https://github.com/user-attachments/assets/ad953a56-f9ae-4c35-b1ba-3a2a4ef372a0" />
  
               
-![Version](https://img.shields.io/badge/version-1.3-green)
+![Version](https://img.shields.io/badge/version-1.4-green)
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
               
 </h1>
@@ -98,18 +98,30 @@ nvim
 
 # What's inside?
 - Git system right in Vim
-- Terminal right in vim `Alt + x`
-- Compile + Run `F5`
-- File Manager `Alt + e`
+- Terminal right in vim
+- Compile + Run
+- File Manager
 - LSR
 - Snippets
 - Others nice stuff
 
 <br>
 
+# Key mapping
+
+| Command  | Keys |
+| ------------- | ------------- |
+| Open/Close Terminal  | `Alt` + `x`  |
+| File tree  | `Alt` + `e`  |
+| Compile & Run | `F5` |
+| File Menu | `Space` + `gg` |
+| Definition | `K`  |
+
+<br>
+
 # License?
 
-It's GNU Licensе: GPL-3.0.
+It's GNU Licensе: [GPL-3.0](github.com/TheItcor/MoaiVim/blob/main/LICENSE)
 
 <br>
 
