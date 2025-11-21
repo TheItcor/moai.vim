@@ -18,14 +18,14 @@
 -- Special thanks: Contributer(s)
 --
 --
--- Last update: 19.11.2025
+-- Last update: 21.11.2025
 --                     Version
 --                        |
 --                        |
 --                        |
 --                       \ /
 --                        v
-local config_version = '[v1.4-dev] "Little Turtle"'
+local config_version = '[v1.4] "Little Turtle"'
 
 -- Basic settings {
 vim.o.number = true -- Show numbers
@@ -149,7 +149,7 @@ require('nvim-treesitter.configs').setup({
     -- -- Add here your language! -- --
 
     -- 'arm_asm', - ARM-assambly
-    -- 'asm', - Assembly x86 / x86_64 (AT&T syntax)
+    -- 'asm', - Assembly x86 / x86_64 (AT&T Syntax)
     -- 'go',
     -- 'html',
     -- 'css',
@@ -219,7 +219,7 @@ require('toggleterm').setup({
 })
 -- }
 
--- For c-style code {
+-- For C-style code {
 require('ibl').setup({
   indent = {
     char = '│',
